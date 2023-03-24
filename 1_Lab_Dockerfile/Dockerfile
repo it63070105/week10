@@ -3,13 +3,14 @@ FROM python:3.9-slim
 
 # Set the working directory
 WORKDIR /app
+COPY requirements.txt . 
 
 # Install system dependencies
 RUN apt-get update
 
 # Install Python dependencies
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+
+RUN pip install  -r requirements.txt
 
 # Set environment variables
 ENV LANG=C.UTF-8 \
