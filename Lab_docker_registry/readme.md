@@ -14,12 +14,12 @@ docker login xxx
 #### Clone
 
 ```
-git clone git@github.com:Tuchsanai/devopt_week10.git
+git clone https://github.com/Tuchsanai/devopt_week10.git
 ```
 
 #### go to Directory
 ```
-cd devpot_week10/Lab_docker_registry
+cd devopt_week10/Lab_docker_registry/
 ```
 
 ### Step 3: Build the Docker image
