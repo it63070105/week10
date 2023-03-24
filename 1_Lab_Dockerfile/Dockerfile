@@ -10,7 +10,9 @@ RUN apt-get update
 
 # Install Python dependencies
 
+RUN pip install --upgrade pip
 RUN pip install  -r requirements.txt
+
 
 # Set environment variables
 ENV LANG=C.UTF-8 \
