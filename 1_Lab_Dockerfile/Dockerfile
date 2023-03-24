@@ -5,8 +5,6 @@ FROM python:3.9-slim
 WORKDIR /app
 COPY requirements.txt . 
 
-# Install system dependencies
-RUN apt-get update
 
 # Install Python dependencies
 
@@ -20,8 +18,6 @@ ENV LANG=C.UTF-8 \
     JUPYTER_TOKEN=my_token \
     JUPYTER_PORT=8888
 
-# Expose the Jupyter port
-EXPOSE ${JUPYTER_PORT}
 
 # Start Jupyter Notebook
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=${JUPYTER_PORT}", "--no-browser", "--allow-root", "--NotebookApp.token=${JUPYTER_TOKEN}"]
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=my_token"]
