@@ -4,6 +4,10 @@
 
 ### A Dockerfile is a script that contains instructions to build a Docker image. Here's a basic example of a Dockerfile for creating a lab environment with Python, Jupyter, and some essential data science libraries:
 
+![Alt Text](jupyter.png)
+
+
+
 ```
 FROM python:3.9-slim
 
