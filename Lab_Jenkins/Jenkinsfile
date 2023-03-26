@@ -41,7 +41,7 @@ pipeline {
            stage('Build Docker Image') {
               steps {
                 script {
-                    dockerImage = docker.build("your-image-name","./Lab_Jenkins")
+                    dockerImage = docker.build("your-image-name","-f ./Lab_Jenkins")
                 }
             }
         }
