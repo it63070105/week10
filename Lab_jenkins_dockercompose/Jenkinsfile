@@ -5,15 +5,19 @@ pipeline {
     stages {
         stage('Initialize') {
             steps {
+            
                 echo 'Initial : Delete  containers and images'
-                sh 'docker-compose down'
-              }
+                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                    echo "Current path is ${pwd()}"
+                    sh "docker-compose down"
+                }
+            }
         }
 
 
         stage('Build Stage') {
             steps {
-                dir('Lab_docker_Jenkins') { // change directory to Lab_docker_Jenkins
+                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
                     echo "Current path is ${pwd()}"
                     sh "docker-compose up"
                 }
