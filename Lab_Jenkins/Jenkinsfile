@@ -7,7 +7,7 @@ pipeline {
               
                 
      
-                dir('./devopt_week10/Lab_Jenkins/Jenkinsfile') {
+                dir('./Lab_Jenkins/Jenkinsfile') {
                    
                  }          
            
