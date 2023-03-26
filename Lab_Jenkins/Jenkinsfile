@@ -30,6 +30,8 @@ pipeline {
                     def currentPath = sh(returnStdout: true, script: 'pwd').trim()
                     echo "Current path is ${currentPath}"
                     sh 'ls -la'
+
+                    sh 'docker build -t my-image ./Lab_Jenkins'
                 }
             }
         }
