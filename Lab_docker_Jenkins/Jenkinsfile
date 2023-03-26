@@ -4,6 +4,7 @@ pipeline {
     environment {
         DOCKER_CONTAINER_NAME = "lab_docker_jenkins-container"
         DOCKER_IMAGE_NAME     = "lab_docker_jenkins-image"
+        PORT                  = "8085"
     }
 
     stages {
@@ -32,7 +33,7 @@ pipeline {
 
         stage('Run Stage') {
             steps {
-                sh "docker run -d -p 8085:3000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
+                sh "docker run -d -p {PORT}:3000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
             }
         }
 
