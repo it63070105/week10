@@ -14,7 +14,7 @@ pipeline {
 
         stage('Build Stage') {
             steps {
-                dir('Lab_docker_Jenkins') {
+                dir('Lab_docker_Jenkins') { // change directory to Lab_docker_Jenkins
                     echo "Current path is ${pwd()}"
                     sh 'docker build -t LAB_docker_jenkins-image .'
                 }
