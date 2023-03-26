@@ -7,6 +7,9 @@ pipeline {
                 sh 'echo "Hello, world!"'
                 sh 'Current directory is:'
                 sh 'ls'
+                sh 'Current path is:'
+                sh 'pwd'
+                
      
                 dir('./devopt_week10/Lab_Jenkins/Jenkinsfile') {
                      sh 'move Lab_Jenkins La'
