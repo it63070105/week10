@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CONTAINER_NAME = "LAB_docker_jenkins-container"
-        DOCKER_IMAGE_NAME     = "LAB_docker_jenkins-image"
+        DOCKER_CONTAINER_NAME = "lab_docker_jenkins-container"
+        DOCKER_IMAGE_NAME     = "lab_docker_jenkins-image"
     }
 
     stages {
