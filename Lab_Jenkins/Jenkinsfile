@@ -7,8 +7,15 @@ pipeline {
                 echo 'Hello World'
                 sh    "ls "
                 sh    " docker --version "
-                sh    " sudo docker ps -a "
             }
         }
     }
+
+    stage('Build Docker Image') {
+            steps {
+                script {
+                    dockerImage = docker.build("your-image-name")
+                }
+            }
+        }
 }
