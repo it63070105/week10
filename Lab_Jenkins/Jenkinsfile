@@ -1,22 +1,53 @@
 
-
 pipeline {
-    agent any
+    agent {
+        docker 'docker:latest'
+    }
 
     stages {
+
+        
         stage('Print Current Path') {
             steps {
-                script {
-                    def currentPath = sh(returnStdout: true, script: 'pwd').trim()
-                    echo "Current path is ${currentPath}"
-
-        
-                     sh 'docker build -t my-image ./Lab_Jenkins'
-                     sh  'docker run -d -p 8085:3000 my-image'
+                dir('Lab_Jenkins') {
+                    echo "Current path is ${pwd()}"
+                    sh 'docker build -t my-image . && docker run -d -p 8085:3000 my-image'
+                    sh 'docker ps | grep my-image'
                 }
             }
-
         }
-        
+    stage('Test') {
+        steps {
+            sh 'curl http://localhost:8085'
+        }
+    }
+    
+    
+    
     }
 }
+
+
+
+
+
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('Print Current Path') {
+//             steps {
+//                 script {
+//                     def currentPath = sh(returnStdout: true, script: 'pwd').trim()
+//                     echo "Current path is ${currentPath}"
+
+        
+//                      sh 'docker build -t my-image ./Lab_Jenkins'
+//                      sh  'docker run -d -p 8085:3000 my-image'
+//                 }
+//             }
+
+//         }
+        
+//     }
+// }
