@@ -1,22 +1,36 @@
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('Run Shell Command') {
+//             steps {
+              
+//                 def currentPath = sh(returnStdout: true, script: 'pwd').trim()
+//                 echo "Current path is ${currentPath}"
+//                 dir('./Lab_Jenkins/Jenkinsfile') {
+                   
+//                  }          
+           
+//                 sh 'docker build -t myapp .'
+//                 sh 'docker run -d -p 8085:3000 myapp'
+//                 sh 'docker ps -a'
+//             }
+//         }
+//     }
+// }
+
+
 pipeline {
     agent any
 
     stages {
-        stage('Run Shell Command') {
+        stage('Print Current Path') {
             steps {
-              
-                def currentPath = sh(returnStdout: true, script: 'pwd').trim()
-                echo "Current path is ${currentPath}"
-                dir('./Lab_Jenkins/Jenkinsfile') {
-                   
-                 }          
-           
-                sh 'docker build -t myapp .'
-                sh 'docker run -d -p 8085:3000 myapp'
-                sh 'docker ps -a'
+                script {
+                    def currentPath = sh(returnStdout: true, script: 'pwd').trim()
+                    echo "Current path is ${currentPath}"
+                }
             }
         }
     }
 }
-
-
