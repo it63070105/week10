@@ -5,6 +5,8 @@ pipeline {
         stage('Run Shell Command') {
             steps {
                 sh 'echo "Hello, world!"'
+                sh 'docker build -t myapp .'
+                sh 'docker run -d -p 8085:3000 myapp'
                 sh 'docker ps -a'
             }
         }
