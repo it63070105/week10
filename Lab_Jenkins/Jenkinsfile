@@ -43,7 +43,7 @@ pipeline {
         stage('Build Docker Image') {
               steps {
                 script {
-                    dockerImage = docker.build("your-image-name","-f ./Lab_Jenkins/Dockerfie .")
+                    dockerImage = docker.build("your-image-name","-f ./Lab_Jenkins/ .")
                 }
             }
         }
