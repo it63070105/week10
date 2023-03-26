@@ -7,7 +7,6 @@ pipeline {
               
                 def currentPath = sh(returnStdout: true, script: 'pwd').trim()
                 echo "Current path is ${currentPath}"
-     
                 dir('./Lab_Jenkins/Jenkinsfile') {
                    
                  }          
