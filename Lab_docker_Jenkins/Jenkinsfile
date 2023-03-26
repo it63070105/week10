@@ -33,7 +33,7 @@ pipeline {
 
         stage('Run Stage') {
             steps {
-                sh "docker run -d -p {PORT}:3000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
+                sh "docker run -d -p ${PORT}:3000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
             }
         }
 
