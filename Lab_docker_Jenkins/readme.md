@@ -5,5 +5,11 @@
 
 ### Step 3: In the ‘Payload URL’ field, paste your Jenkins environment URL. At the end of this URL add /github-webhook/. In the ‘Content type’ select: ‘application/json’ and leave the ‘Secret’ field empty.
 ```
-http://ip-address/github-webhook/
+http://ip-address:8080/github-webhook/
 ```
+
+### Jenkins plugins
+Install the following plugins for the demo.
+
+* Docker plugin
+* Docker Pipeline
