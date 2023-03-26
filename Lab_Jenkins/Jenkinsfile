@@ -5,8 +5,6 @@ pipeline {
         stage('Run Shell Command') {
             steps {
               
-                sh 'Current path is:'
-                sh 'pwd'
                 
      
                 dir('./devopt_week10/Lab_Jenkins/Jenkinsfile') {
