@@ -1,18 +1,12 @@
 pipeline {
     agent any
 
-  
-    }
-
     stages {
-        stage('Build Docker Image') {
+        stage('Run Shell Command') {
             steps {
-                script {
-                         sh 'docker build -t jenkins-docker .'
-                }
+                sh 'echo "Hello, world!"'
+                sh 'docker ps -a'
             }
         }
-
     }
-
-}       
+}
