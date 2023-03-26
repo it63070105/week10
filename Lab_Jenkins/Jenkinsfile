@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_REGISTRY = "mydockerregistry.com"
-        DOCKER_IMAGE_NAME = "my-docker-image"
+        DOCKER_IMAGE_NAME = "docker-image"
         DOCKER_IMAGE_TAG = "latest"
     }
 
