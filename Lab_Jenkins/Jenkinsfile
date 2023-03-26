@@ -5,9 +5,14 @@ pipeline {
         stage('Run Shell Command') {
             steps {
                 sh 'echo "Hello, world!"'
-                sh 'cd ./Lab_Jenkins'
-                sh 'ls -la'
-
+                sh 'Current directory is: pwd'
+                sh 'ls'
+     
+                 dir('./Lab_Jenkins') {
+                     sh 'move Lab_Jenkins La'
+                     sh 'ls'
+                 }          
+           
                 sh 'docker build -t myapp .'
                 sh 'docker run -d -p 8085:3000 myapp'
                 sh 'docker ps -a'
