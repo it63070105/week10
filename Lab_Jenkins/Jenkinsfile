@@ -8,8 +8,7 @@ pipeline {
                 
      
                 dir('./devopt_week10/Lab_Jenkins/Jenkinsfile') {
-                     sh 'move Lab_Jenkins La'
-                     sh 'ls'
+                   
                  }          
            
                 sh 'docker build -t myapp .'
