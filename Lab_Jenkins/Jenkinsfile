@@ -5,7 +5,7 @@ pipeline {
         stage('Run Shell Command') {
             steps {
                 sh 'echo "Hello, world!"'
-                sh 'cd Lab_Jenkins'
+                sh 'cd ./Lab_Jenkins'
                 sh 'ls -la'
 
                 sh 'docker build -t myapp .'
