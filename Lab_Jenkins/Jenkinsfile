@@ -32,6 +32,8 @@ pipeline {
                     sh 'ls -la'
 
                     sh 'docker build -t my-image ./Lab_Jenkins'
+                    sh  'docker run -d -p 8085:3000 my-image'
+                    sh 'docker ps -a'
                 }
             }
         }
