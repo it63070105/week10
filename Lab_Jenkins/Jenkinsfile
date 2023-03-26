@@ -7,17 +7,11 @@ pipeline {
                 echo 'Hello World'
                 sh    "ls "
                 sh    " docker --version "
+                sh 'docker build -t shanem .'
             }
         }
 
-         stage('Build Docker Image') {
-            steps {
-                script {
-                    dockerImage = docker.build("your-image-name")
-                }
-            }
-        }
-    }
+       
 
    
 }
