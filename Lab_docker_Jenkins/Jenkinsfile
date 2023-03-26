@@ -10,9 +10,9 @@ pipeline {
         stage('Initialize') {
             steps {
                 echo 'Initial : Delete  containers and images'
-                sh "docker stop ${DOCKER_CONTAINER_NAME} || true"
-                sh "docker rm ${DOCKER_CONTAINER_NAME} || true"
-                sh "docker rmi ${DOCKER_IMAGE_NAME} || true"
+                sh "docker stop ${DOCKER_CONTAINER_NAME}"
+                sh "docker rm ${DOCKER_CONTAINER_NAME}"
+                sh "docker rmi ${DOCKER_IMAGE_NAME}"
             }
         }
 
