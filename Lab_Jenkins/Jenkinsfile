@@ -29,13 +29,22 @@ pipeline {
                 script {
                     def currentPath = sh(returnStdout: true, script: 'pwd').trim()
                     echo "Current path is ${currentPath}"
+
                     sh 'ls -la'
 
-                    sh 'docker build -t my-image ./Lab_Jenkins'
-                    sh  'docker run -d -p 8085:3000 my-image'
-                    sh 'docker ps -a'
+                    // sh 'docker build -t my-image ./Lab_Jenkins'
+                    // sh  'docker run -d -p 8085:3000 my-image'
+                    // sh 'docker ps -a'
                 }
             }
+
+           stage('Build Docker Image') {
+              steps {
+                script {
+                    dockerImage = docker.build("your-image-name")
+                }
+            }
+        }
         }
     }
 }
