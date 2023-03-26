@@ -14,13 +14,14 @@ pipeline {
                 sh "docker rm -f $(docker ps -a -q)"
             // remove all images
                 sh "docker rmi -f $(docker images -q)"
+                
 
                 // sh "docker stop ${DOCKER_CONTAINER_NAME}"
                 // sh "docker rm ${DOCKER_CONTAINER_NAME}"
                 // sh "docker rmi ${DOCKER_IMAGE_NAME}"
             }
         }
-        
+
 
         stage('Build Stage') {
             steps {
