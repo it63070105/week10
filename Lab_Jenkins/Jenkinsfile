@@ -9,13 +9,15 @@ pipeline {
                 sh    " docker --version "
             }
         }
-    }
 
-    stage('Build Docker Image') {
+         stage('Build Docker Image') {
             steps {
                 script {
                     dockerImage = docker.build("your-image-name")
                 }
             }
         }
+    }
+
+   
 }
