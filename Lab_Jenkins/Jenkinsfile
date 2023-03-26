@@ -4,9 +4,7 @@ pipeline {
     stages {
         stage('Run Shell Command') {
             steps {
-                sh 'echo "Hello, world!"'
-                sh 'Current directory is:'
-                sh 'ls'
+              
                 sh 'Current path is:'
                 sh 'pwd'
                 
