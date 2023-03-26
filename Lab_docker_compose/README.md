@@ -12,4 +12,3 @@ A simple distributed application running across multiple Docker containers.
 * A [Postgres](https://hub.docker.com/_/postgres/) database backed by a Docker volume
 * A [Node.js](/result) web app which shows the results of the voting in real time
 
-
