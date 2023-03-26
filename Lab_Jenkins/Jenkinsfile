@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -10,21 +9,17 @@ pipeline {
                 sh 'docker stop $(docker ps -a -q)'
                 sh 'docker rm $(docker ps -a -q)'
                 sh 'docker rmi $(docker images -q)'
-
-                def currentPath = sh(returnStdout: true, script: 'pwd').trim()
-                echo "Current path is ${currentPath}"
             }
         }
 
-        stage('build stage') {
+        stage('Build Stage') {
             steps {
-                script {
-                     sh 'docker build -t my-image ./Lab_Jenkins'
-                     sh  'docker run -d -p 8085:3000 my-image'
+                dir('Lab_Jenkins') {
+                    echo "Current path is ${pwd()}"
+                    sh 'docker build -t my-image .'
+                    sh 'docker run -d -p 8085:3000 --name my-container my-image'
                 }
             }
-
-        }
-        
+        }   
     }
 }
