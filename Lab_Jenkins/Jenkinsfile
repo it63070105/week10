@@ -5,10 +5,10 @@ pipeline {
         stage('Run Shell Command') {
             steps {
                 sh 'echo "Hello, world!"'
-                sh 'Current directory is: pwd'
+                sh 'Current directory is:'
                 sh 'ls'
      
-                 dir('./Lab_Jenkins') {
+                dir('./devopt_week10/Lab_Jenkins/Jenkinsfile') {
                      sh 'move Lab_Jenkins La'
                      sh 'ls'
                  }          
@@ -20,3 +20,5 @@ pipeline {
         }
     }
 }
+
+
