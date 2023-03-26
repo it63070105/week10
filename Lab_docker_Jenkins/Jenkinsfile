@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('run test') {
+        stage('Run Stage') {
             steps {
                 sh "docker run -d -p 8085:3000 --name ${DOCKER_CONTAINER_NAME} ${DOCKER_IMAGE_NAME}"
             }
