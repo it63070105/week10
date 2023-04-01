@@ -1,3 +1,7 @@
+# Video
+
+https://drive.google.com/file/d/1I2e0tnD-pIWvC0zUWiABk8rH9wYeLfFF/view?usp=sharing
+
 # Install jenkins, docker, docker-compose, and git 
 
 ### 1. Open the install_git_docker_docker_compose.sh file :
