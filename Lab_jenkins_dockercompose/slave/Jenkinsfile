@@ -46,7 +46,7 @@ pipeline {
         stage('Run Stage') {
             steps {
                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
-                    sh "docker-compose up --force-recreate"
+                    sh "docker-compose up -d"
                 }
             }
         }
