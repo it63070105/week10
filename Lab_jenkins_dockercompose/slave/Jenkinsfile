@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Trigger Stage') {
             steps {
-                echo "Username: ${params.DOCKERHUB_CREDENTIALS_USR} Password: ${params.DOCKERHUB_CREDENTIALS_PSW}"
-                echo "OK."
+                echo "Hello."
+                echo "Username: ${params.DOCKERHUB_CREDENTIALS_USR}"
             }
         }
         
