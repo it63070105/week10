@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(name: 'DOCKERHUB_CREDENTIALS_USR')
+        string(name: 'DOCKERHUB_CREDENTIALS_PSW')
+    }
+
+    stages {
+        stage('Trigger Stage') {
+            steps {
+                echo "Username: ${params.DOCKERHUB_CREDENTIALS_USR} Password: ${params.DOCKERHUB_CREDENTIALS_PSW}"
+                echo "OK."
+            }
+        }
+        
+        stage('Initialize Stage') {
+            steps {
+            
+                echo 'Initial : Delete  containers and images'
+                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                    echo "Current path is ${pwd()}"
+                    sh "docker-compose down --rmi all --volumes --remove-orphans"
+                    sh "docker network prune"
+                    sh "docker volume prune"
+                }
+            }
+        }
+        
+        stage('Login Stage') {
+            steps {
+                echo "Login : Logging in . . ."
+                sh "echo ${params.DOCKERHUB_CREDENTIALS_PSW} | docker login -u ${params.DOCKERHUB_CREDENTIALS_USR} --password-stdin"
+            }
+        }
+
+        stage('Pull Stage') {
+            steps {
+                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                    sh "docker-compose pull"
+                    sh "ls"
+                }
+            }
+        }
+        
+        stage('Run Stage') {
+            steps {
+                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                    sh "docker-compose up --force-recreate"
+                }
+            }
+        }
+    }
+}

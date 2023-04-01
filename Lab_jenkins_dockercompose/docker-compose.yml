@@ -5,6 +5,7 @@
 services:
   vote:
     build: ./vote
+    image: it63070105/vote:1.0
     # use python rather than gunicorn for local dev
     command: python app.py
     depends_on:
@@ -26,6 +27,7 @@ services:
 
   result:
     build: ./result
+    image: it63070105/result:1.0
     # use nodemon rather than node for local dev
     entrypoint: nodemon server.js
     depends_on:
@@ -43,6 +45,7 @@ services:
   worker:
     build:
       context: ./worker
+    image: it63070105/worker:1.0
     depends_on:
       redis:
         condition: service_healthy 
@@ -80,6 +83,7 @@ services:
   # docker compose --profile seed up -d
   seed:
     build: ./seed-data
+    image: it63070105/seed:1.0
     profiles: ["seed"]
     depends_on:
       vote:
