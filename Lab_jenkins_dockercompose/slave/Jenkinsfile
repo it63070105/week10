@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Trigger Stage') {
             steps {
-                echo "Hello."
+                echo "Hello dockerhub."
                 echo "Username: ${params.DOCKERHUB_CREDENTIALS_USR}"
             }
         }
