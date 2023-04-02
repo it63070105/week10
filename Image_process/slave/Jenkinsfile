@@ -18,7 +18,7 @@ pipeline {
             steps {
             
                 echo 'Initial : Delete  containers and images'
-                 dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                 dir('Image_process') { // change directory to Lab_docker_Jenkins
                     echo "Current path is ${pwd()}"
                     sh "docker-compose down --rmi all --volumes --remove-orphans"
                     sh "docker network prune"
