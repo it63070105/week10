@@ -36,8 +36,6 @@ services:
       - front-tier
       - back-tier
 
-volumes:
-
 networks:
   front-tier:
   back-tier:
