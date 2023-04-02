@@ -7,7 +7,7 @@ services:
     build: ./backend
     image: it63070105/backend:1.0
     # use python rather than gunicorn for local dev
-    command: python app.py
+    #command: python app.py
     healthcheck: 
       test: ["CMD", "curl", "-f", "http://localhost"]
       interval: 15s
@@ -26,7 +26,7 @@ services:
     build: ./frontend
     image: it63070105/frontend:1.0
     # use nodemon rather than node for local dev
-    command: python app.py
+    #command: python app.py
     volumes:
       - ./frontend:/app
     ports:
