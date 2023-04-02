@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Processing</title>
+</head>
+<body>
+    <h1>Your image here</h1>
+    <!-- <p><b>With image file : </b>http://&lt;your-ip&gt;:8081/file/&lt;image-file&gt;</p>
+    <p><b>With url : </b>http://&lt;your-ip&gt;:8081/url?img=&lt;image-url&gt; replace : with %3A and / with %2F</p>
+    <p><b>Example :</b>https://picsum.photos/200 to https%3A%2F%2Fpicsum.photos%2F200</p> -->
+    <form>
+        image-file: <input type="text" name="file" id="input1">
+        <button onclick="byfile(document.getElementById('input1').value)">Process</button><br><br>
+        image-url: <input type="text" name="url" id="input2">
+        <button onclick="byurl(document.getElementById('input2').value)">Process</button>
+    </form>
+
+    <script>
+        const url = "http://54.152.253.145:8081"
+        function byfile(val) {
+
+            window.open(url + "/file/" + val)
+        }
+        function byurl(val) {
+            val = val.replaceAll(":", "%3A")
+            val = val.replaceAll("/", "%2F")
+            window.open(url + "/url?img=" + val)
+        }
+    </script>
+    <img src="data:image/png;base64, {{ image }}" alt="graph">
+
+</body>
+</html>
