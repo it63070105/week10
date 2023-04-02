@@ -22,7 +22,7 @@ def decode_image(image_string):
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
     return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
-url = "http://54.152.253.145:8088"
+url = "http://54.243.3.148:8088"
 
 @app.route('/')
 def home():
