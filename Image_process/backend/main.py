@@ -30,7 +30,7 @@ def decode_image(image_string):
     return cv2.imdecode(nparr, cv2.IMREAD_COLOR)
 
 def apply_canny(image):
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     edges = cv2.Canny(gray, 100, 200)
     return edges
 
