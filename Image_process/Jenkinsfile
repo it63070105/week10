@@ -19,7 +19,7 @@ pipeline {
 
         stage('Build Stage') {
             steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                dir('Image_process') { // change directory to Lab_docker_Jenkins
                     echo "Build : Current path is ${pwd()}"
                     sh "docker-compose build"
                 }
@@ -35,7 +35,7 @@ pipeline {
 
         stage('Push Stage') {
             steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                dir('Image_process') { // change directory to Lab_docker_Jenkins
                     echo "Push : Current path is ${pwd()}"
                     sh "docker-compose push"
                 }
@@ -44,7 +44,7 @@ pipeline {
         
         stage('Trigger Slave job') {
             steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                dir('Image_process') { // change directory to Lab_docker_Jenkins
                     echo "Trigger : calling Slave job . . ."
                     sh 'echo "HELLO ${DOCKERHUB_CREDENTIALS_USR}"'
                     build job: 'slave', parameters: [string(name: 'DOCKERHUB_CREDENTIALS_USR', value: env.DOCKERHUB_CREDENTIALS_USR), string(name: 'DOCKERHUB_CREDENTIALS_PSW', value: env.DOCKERHUB_CREDENTIALS_PSW)]
