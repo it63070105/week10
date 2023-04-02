@@ -36,7 +36,7 @@ pipeline {
 
         stage('Pull Stage') {
             steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                dir('Image_process') { // change directory to Lab_docker_Jenkins
                     sh "docker-compose pull"
                     sh "ls"
                 }
@@ -45,7 +45,7 @@ pipeline {
         
         stage('Run Stage') {
             steps {
-                dir('Lab_jenkins_dockercompose') { // change directory to Lab_docker_Jenkins
+                dir('Image_process') { // change directory to Lab_docker_Jenkins
                     sh "docker-compose up -d"
                 }
             }
